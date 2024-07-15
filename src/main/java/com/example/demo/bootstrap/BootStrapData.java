@@ -38,12 +38,13 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
 /*
         OutsourcedPart o= new OutsourcedPart();
         o.setCompanyName("Joe's Computer Shack");
         o.setName("CPU");
         o.setInv(5);
+        o.setMinInv(10);
+        o.setMaxInv(100);
         o.setPrice(300.0);
         o.setId(100L);
         outsourcedPartRepository.save(o);
@@ -51,6 +52,8 @@ public class BootStrapData implements CommandLineRunner {
         p.setCompanyName("Joe's Computer Shack");
         p.setName("GPU");
         p.setInv(5);
+        p.setMinInv(10);
+        p.setMaxInv(100);
         p.setPrice(400.0);
         p.setId(101L);
         outsourcedPartRepository.save(p);
@@ -58,6 +61,8 @@ public class BootStrapData implements CommandLineRunner {
         q.setCompanyName("Joe's Computer Shack");
         q.setName("Memory");
         q.setInv(5);
+        q.setMinInv(10);
+        q.setMaxInv(100);
         q.setPrice(200.0);
         q.setId(102L);
         outsourcedPartRepository.save(q);
@@ -65,6 +70,8 @@ public class BootStrapData implements CommandLineRunner {
         r.setCompanyName("Joe's Computer Shack");
         r.setName("SSD");
         r.setInv(5);
+        r.setMinInv(10);
+        r.setMaxInv(100);
         r.setPrice(150.0);
         r.setId(103L);
         outsourcedPartRepository.save(r);
@@ -72,6 +79,8 @@ public class BootStrapData implements CommandLineRunner {
         s.setCompanyName("Joe's Computer Shack");
         s.setName("Motherboard");
         s.setInv(5);
+        s.setMinInv(10);
+        s.setMaxInv(100);
         s.setPrice(350.0);
         s.setId(104L);
         outsourcedPartRepository.save(s);
@@ -89,6 +98,8 @@ public class BootStrapData implements CommandLineRunner {
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
+
+
 
 
 /*
