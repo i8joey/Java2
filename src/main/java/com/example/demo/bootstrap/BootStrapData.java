@@ -39,33 +39,70 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-       /*
+/*
         OutsourcedPart o= new OutsourcedPart();
-        o.setCompanyName("Western Governors University");
-        o.setName("out test");
+        o.setCompanyName("Joe's Computer Shack");
+        o.setName("CPU");
         o.setInv(5);
-        o.setPrice(20.0);
+        o.setPrice(300.0);
         o.setId(100L);
         outsourcedPartRepository.save(o);
+        OutsourcedPart p= new OutsourcedPart();
+        p.setCompanyName("Joe's Computer Shack");
+        p.setName("GPU");
+        p.setInv(5);
+        p.setPrice(400.0);
+        p.setId(101L);
+        outsourcedPartRepository.save(p);
+        OutsourcedPart q= new OutsourcedPart();
+        q.setCompanyName("Joe's Computer Shack");
+        q.setName("Memory");
+        q.setInv(5);
+        q.setPrice(200.0);
+        q.setId(102L);
+        outsourcedPartRepository.save(q);
+        OutsourcedPart r= new OutsourcedPart();
+        r.setCompanyName("Joe's Computer Shack");
+        r.setName("SSD");
+        r.setInv(5);
+        r.setPrice(150.0);
+        r.setId(103L);
+        outsourcedPartRepository.save(r);
+        OutsourcedPart s= new OutsourcedPart();
+        s.setCompanyName("Joe's Computer Shack");
+        s.setName("Motherboard");
+        s.setInv(5);
+        s.setPrice(350.0);
+        s.setId(104L);
+        outsourcedPartRepository.save(s);
         OutsourcedPart thePart=null;
+
+
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             if(part.getName().equals("out test"))thePart=part;
         }
 
         System.out.println(thePart.getCompanyName());
-        */
+*/
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
 
-        /*
-        Product bicycle= new Product("bicycle",100.0,15);
-        Product unicycle= new Product("unicycle",100.0,15);
-        productRepository.save(bicycle);
-        productRepository.save(unicycle);
-        */
+
+/*
+        Product desktop= new Product("Desktop",1200.0,15);
+        Product laptop= new Product("Laptop",800.0,15);
+        Product chromebook= new Product("Chromebook",200.0,15);
+        Product macMini= new Product("MacMini",500.0,15);
+        Product supercomputer= new Product("Supercomputer",15000.0,15);
+        productRepository.save(desktop);
+        productRepository.save(laptop);
+        productRepository.save(chromebook);
+        productRepository.save(macMini);
+        productRepository.save(supercomputer);
+*/
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
