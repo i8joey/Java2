@@ -18,7 +18,9 @@
 <div class="container">
     <h1>Electronics</h1>
     <hr>
-    <h2>Parts</h2>
+    <button onclick="window.location.href='/about'">Go to About</button>
+    <hr>
+    <h3>Parts</h3>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;

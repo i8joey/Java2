@@ -11,6 +11,15 @@ Note: Do not remove any elements that were included in the screen. You may add a
 
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+mainscreen.html
+Line 21 - added button to redirect to /about page
+Line 22 - added a separator
+about.java
+Created about page interface
+AboutPage.java
+created getAbout() method
+AboutController.java
+created controller for About
 
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
