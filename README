@@ -78,7 +78,8 @@ buynowcontroller.java
 Lines - 31-50 - added a check to see if there are enough parts to buy a product and parts stay above minimum inventory
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
-
+parttest.java
+Lines 160-174 - added two tests to set/get minimum and maximum inventory
 
 J.  Remove the class files for any unused validators in order to clean your code.
 
