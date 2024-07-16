@@ -50,22 +50,32 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
 •  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
 Part.java
 Lines 32-36 - created minInv and maxInv variables and ensured min cannot be less than 0 and max cannot be more than 100
-Lines 50-51 - set minInv to 5 and maxInv to 100
-Lines 89 - 97 - modified the setInv method so it is between minInv and maxInv, will return true or false
+Lines 50-51 - set minInv to 0 and maxInv to 100
 Lines 107-121 - set getters/setters for min/maxinv
 BooStrapData.java
 Lines 42-87 - set min/max inv for parts manually added
 inhousepart.java + outsourcedpart.java
-lines 18/19 - initialized min/max inv to 5 and 100
+lines 18/19 - initialized min/max inv to 0 and 100
 BuyNowController.java
 Lines - 31-39
 Added a check to make sure there are enough parts to buy a product, if there are not enough parts it will redirect with an error message
+inhousepartform.html
+Lines 26-30 - added extra inputs for min/max inventory
+outsourcedpartform.html
+Lines 25-29 - added extra input for min/max inventory
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
 •  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
 •  Display error messages when adding and updating parts if the inventory is greater than the maximum.
-
+InventoryRangeValidator.java - validinventoryrange.java
+Created custom validator to ensure inventory of parts is within range
+inhousepartform.html
+lines - 34-38 - added error display if amount added is not within range
+outsurcedpartform.html
+lines 35-39 - added error display if amoutn added is not within range
+buynowcontroller.java
+Lines - 31-50 - added a check to see if there are enough parts to buy a product and parts stay above minimum inventory
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 

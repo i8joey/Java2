@@ -4,6 +4,7 @@ import com.example.demo.validators.ValidDeletePart;
 import com.example.demo.validators.ValidInventoryRange;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
@@ -49,7 +50,7 @@ public abstract class Part implements Serializable {
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.minInv = 5;
+        this.minInv = 0;
         this.maxInv = 100;
     }
 
@@ -116,12 +117,8 @@ public abstract class Part implements Serializable {
         this.maxInv = maxInv;
     }
 
-    public boolean underMin() {
-        return this.getInv() <= this.minInv;
-    }
-
-    public boolean overMax() {
-        return this.getInv() >= this.maxInv;
+    public boolean withinRange() {
+        return inv >= minInv && inv <= maxInv;
     }
 
 

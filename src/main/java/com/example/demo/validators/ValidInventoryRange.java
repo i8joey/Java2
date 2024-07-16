@@ -7,12 +7,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = InventoryRangeValidator.class)
+@Constraint(validatedBy = {InventoryRangeValidator.class})
 @Target( {ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-
 public @interface ValidInventoryRange {
-    String message() default "Inventory must be between the minimum and maximum";
-    Class<?>[] groups() default {};
-    Class<? extends Payload>[] payload() default {};
+    String message() default "Inventory must be within range";
+    Class<?> [] groups() default {};
+    Class<? extends Payload> [] payload() default {};
 }

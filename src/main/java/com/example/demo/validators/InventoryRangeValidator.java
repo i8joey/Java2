@@ -2,23 +2,28 @@ package com.example.demo.validators;
 
 
 import com.example.demo.domain.Part;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 public class InventoryRangeValidator implements ConstraintValidator<ValidInventoryRange, Part> {
-    @Override
-    public void initialize(ValidInventoryRange constraintAnnotation) {}
+
+    @Autowired
+    private ApplicationContext context;
+
+    public static ApplicationContext myContext;
 
     @Override
-    public boolean isValid(Part part, ConstraintValidatorContext context) {
-        int inv = part.getInv();
-        int min = part.getMinInv();
-        int max = part.getMaxInv();
-        boolean isValid = inv >= min && inv <= max;
-        if(!isValid) {
-            context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("Invalid Inventory Range").addConstraintViolation();
+    public void initialize(ValidInventoryRange constraintAnnotation) {
+        ConstraintValidator.super.initialize(constraintAnnotation);
+    }
+
+    @Override
+    public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
+        if(part.getInv() >=  part.getMinInv() && part.getInv() <= part.getMaxInv()) {
+            return true;
         }
-        return isValid;
+        return false;
     }
 }
