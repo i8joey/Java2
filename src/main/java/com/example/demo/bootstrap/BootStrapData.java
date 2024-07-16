@@ -38,7 +38,7 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-/*
+
         OutsourcedPart o= new OutsourcedPart();
         o.setCompanyName("Joe's Computer Shack");
         o.setName("CPU");
@@ -92,17 +92,18 @@ public class BootStrapData implements CommandLineRunner {
             if(part.getName().equals("out test"))thePart=part;
         }
 
+        /*
         System.out.println(thePart.getCompanyName());
-*/
+
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
+        */
 
 
 
 
-/*
         Product desktop= new Product("Desktop",1200.0,15);
         Product laptop= new Product("Laptop",800.0,15);
         Product chromebook= new Product("Chromebook",200.0,15);
@@ -113,7 +114,7 @@ public class BootStrapData implements CommandLineRunner {
         productRepository.save(chromebook);
         productRepository.save(macMini);
         productRepository.save(supercomputer);
-*/
+
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
