@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 import com.example.demo.validators.ValidDeletePart;
+import com.example.demo.validators.ValidInventoryRange;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -20,6 +21,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="part_type",discriminatorType = DiscriminatorType.INTEGER)
 @Table(name="Parts")
+@ValidInventoryRange
 public abstract class Part implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,7 +49,7 @@ public abstract class Part implements Serializable {
         this.name = name;
         this.price = price;
         this.inv = inv;
-        this.minInv = 0;
+        this.minInv = 5;
         this.maxInv = 100;
     }
 
@@ -86,14 +88,8 @@ public abstract class Part implements Serializable {
         return inv;
     }
 
-    public boolean setInv(int inv) {
-        if (inv >= minInv && inv <= maxInv) {
-            this.inv = inv;
-            return true;
-        }
-        else {
-            return false;
-        }
+    public void setInv(int inv) {
+        this.inv = inv;
     }
 
     public Set<Product> getProducts() {
@@ -118,6 +114,14 @@ public abstract class Part implements Serializable {
 
     public void setMaxInv(int maxInv) {
         this.maxInv = maxInv;
+    }
+
+    public boolean underMin() {
+        return this.getInv() <= this.minInv;
+    }
+
+    public boolean overMax() {
+        return this.getInv() >= this.maxInv;
     }
 
 
