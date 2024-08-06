@@ -1,87 +1,78 @@
- prompt, file name, line number, and change
-
-C.  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
-
+Part C
 Customized HTML user interface
 mainscreen.html
 Line 14 - renamed the shop
-Line 19 - renamed
+Line 18 - renamed category
 
-Note: Do not remove any elements that were included in the screen. You may add any additional elements you would like or any images, colors, and styles, although it is not required.
-
-
-D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+Part D
 mainscreen.html
-Line 21 - added button to redirect to /about page
+Line 20 - added button to redirect to /about page
 Line 22 - added a separator
+
+about.html
+Created simple about page with button to link back to main page
+
 about.java
 Created about page interface
+
 AboutPage.java
 created getAbout() method
+
 AboutController.java
-created controller for About
+Lines 8 - 22 - created controller for about page and added getAbout() to redirect to /about
 
-
-E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
+Part E
 BootStrapData.java
-Lines 43-77 - Added 5 computer parts
-Lines 93-102 - Added 5 products
+Lines 29-31 - added repositories needed
+Lines 40-86 - Added 5 computer parts that are created when outsourcedPartsRepository has no parts
+Lines 106-116 - Added 5 products and saved to productRepostiory
 
-Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
-
-
-F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
-•  The “Buy Now” button must be next to the buttons that update and delete products.
-•  The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
-•  Display a message that indicates the success or failure of a purchase.
+Part F
 mainscreen.html
 Line 88 - created button that sends productid to buynowcontroller
+
 buynowcontroller.java
-created a controller for button that also has access to productrepository
-doesnotexist.html - outofstock.html - purchasesuccessful.html
-created simple pages for confirmation and reroutes to mainpage
+Lines 21-23 - added product and part repositories
+Lines 26-54 - created /buyproduct page and redirects to different pages depending on if it is successful or not and can reroute to main page
 
 
-G.  Modify the parts to track maximum and minimum inventory by doing the following:
-•  Add additional fields to the part entity for maximum and minimum inventory.
-•  Modify the sample inventory to include the maximum and minimum fields.
-•  Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
-•  Rename the file the persistent storage is saved to.
-•  Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+Part G
 Part.java
 Lines 32-36 - created minInv and maxInv variables and ensured min cannot be less than 0 and max cannot be more than 100
 Lines 50-51 - set minInv to 0 and maxInv to 100
 Lines 107-121 - set getters/setters for min/maxinv
+
 BooStrapData.java
 Lines 42-87 - set min/max inv for parts manually added
 inhousepart.java + outsourcedpart.java
 lines 18/19 - initialized min/max inv to 0 and 100
+
 BuyNowController.java
 Lines - 31-39
 Added a check to make sure there are enough parts to buy a product, if there are not enough parts it will redirect with an error message
+
 inhousepartform.html
 Lines 26-30 - added extra inputs for min/max inventory
 outsourcedpartform.html
 Lines 25-29 - added extra input for min/max inventory
 
-H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
-•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
-•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
-•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+Part H
 InventoryRangeValidator.java - validinventoryrange.java
 Created custom validator to ensure inventory of parts is within range
+
 inhousepartform.html
 lines - 34-38 - added error display if amount added is not within range
+
 outsurcedpartform.html
 lines 35-39 - added error display if amoutn added is not within range
+
 buynowcontroller.java
 Lines - 31-50 - added a check to see if there are enough parts to buy a product and parts stay above minimum inventory
 
-I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+Part I
 parttest.java
 Lines 160-174 - added two tests to set/get minimum and maximum inventory
 
-J.  Remove the class files for any unused validators in order to clean your code.
-Deleted deletepartvalidator and validdeletepart
+Part J
+Deleted deletepartvalidator and validdeletepart as they were not being used
 
-K.  Demonstrate professional communication in the content and presentation of your submission.
